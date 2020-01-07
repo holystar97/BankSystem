@@ -46,33 +46,33 @@ public class Enter extends Frame {
 		// main=new MainEx();
 		// main.setVisible(false);
 		Panel p0 = new Panel();
-		Label la1 = new Label("---------- ȸ������------------");
+		Label la1 = new Label("---------- JOIN------------");
 
 		p0.add(la1);
 
 		Panel p1 = new Panel();
 		p1.setLayout(new GridLayout(7, 2));
 
-		Label name = new Label("�̸�");
+		Label name = new Label("Name");
 		TextField name1 = new TextField("", 10);
 
 		CheckboxGroup ch = new CheckboxGroup();
-		Checkbox ch1 = new Checkbox("����", true, ch);
-		Checkbox ch2 = new Checkbox("����", false, ch);
+		Checkbox ch1 = new Checkbox("F", true, ch);
+		Checkbox ch2 = new Checkbox("M", false, ch);
 
-		Label id = new Label("���̵�");
+		Label id = new Label("ID");
 		TextField id1 = new TextField("", 10);
 
-		Label pw = new Label("�н�����");
+		Label pw = new Label("PW");
 		TextField pw1 = new TextField("", 10);
 
-		Label phone = new Label("�޴��� ��ȣ");
+		Label phone = new Label("Phone");
 		TextField phone1 = new TextField("", 10);
 
-		Label email = new Label("�̸���");
+		Label email = new Label("Email");
 		TextField email1 = new TextField("", 10);
 
-		Label address = new Label("�ּ�");
+		Label address = new Label("Addr");
 		TextField address1 = new TextField("", 10);
 
 		p1.add(name);
@@ -93,8 +93,8 @@ public class Enter extends Frame {
 		Panel p3 = new Panel();
 		// p3.setLayout(new BorderLayout());
 		// Label la2=new Label(" ");
-		Label la3 = new Label("mk bank �� �̿����ּż� �����մϴ�.");
-		Button send = new Button("����");
+		Label la3 = new Label("Welcome to visit OKDOL BANK");
+		Button send = new Button("SEND");
 
 
 		send.addActionListener(new ActionListener() {
@@ -216,8 +216,8 @@ public class Enter extends Frame {
 		public MyDialog3(Frame frame, MainEx main) {
 			super(frame);
 			this.main = main;
-			add(new Label("����Ǿ����ϴ�."));
-			add(new Label("������ ���¹�ȣ�� " + cust.getAccount() + "�Դϴ�."));
+			add(new Label("Welcome."));
+			add(new Label("Your account is " + cust.getAccount() ));
 
 			addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {

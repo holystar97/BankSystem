@@ -49,7 +49,7 @@ public class Transfer extends Frame implements Runnable {
   //p0.setLayout(new GridLayout(1,2));
   //p0.setLayout(new BorderLayout());
   
-  la0 = new Label("★★★★★★★★이체★★★★★★★★");
+  la0 = new Label("Transfer");
   Font f1=new Font("Serif",Font.BOLD,50);
   la0.setFont(f1);
   
@@ -65,16 +65,16 @@ public class Transfer extends Frame implements Runnable {
   p1_3=new Panel();
   
   //p1.setLayout(new BorderLayout());
-  la1 = new Label("어떤 계좌로 송금하시겠습니까?");
+  la1 = new Label("Which account? ");
   ta = new TextArea("", 20, 20, 3);
   tf1 = new TextField("", 20);
 
   gla1 = new Label("\n\n");
-  la6 = new Label("현재 어떤 계좌이십니까?");
+  la6 = new Label("What is your account? ");
   tf5 = new TextField("", 20);
   gla2 = new Label("\n\n");
 
-  la2 = new Label("얼마를 이체하시겠습니까?");
+  la2 = new Label("Money> ");
   tf2 = new TextField("", 10);
   gla3 = new Label("\n\n");
 
@@ -83,7 +83,7 @@ public class Transfer extends Frame implements Runnable {
   
   
   
-  check = new Button("확인");
+  check = new Button("SEND");
 
   // String target= "0000";
   // String money="10000";
@@ -130,9 +130,9 @@ public class Transfer extends Frame implements Runnable {
   
   p3 = new Panel();
 
-  Label la3 = new Label("mk bank 를 이용해주셔서 감사합니다.");
+  Label la3 = new Label("Welcome to visit OKDOL BANK.");
   la3.setFont(new Font("Serif",Font.BOLD,20));
-  send = new Button("전송");
+  send = new Button("SEND");
 
   dialog = new MyTranferDialog(this);
   // dialog.add(new JButton("로그인"));
@@ -152,7 +152,7 @@ public class Transfer extends Frame implements Runnable {
      if (currentAddr.equals(custs.get(i).getAccount())) {
       idx = i;
       custs.get(idx).setBalance(custs.get(idx).getBalance() - transferAmount);
-      System.out.println("보내실 계좌번호를 찾았습니다.");
+      System.out.println("Found account.");
      }
      
      
@@ -164,7 +164,7 @@ public class Transfer extends Frame implements Runnable {
      
      if (targetAddr.equals(custs.get(i).getAccount())) {
       custs.get(i).setBalance(custs.get(i).getBalance() + transferAmount);
-      System.out.println("정상적으로 이체되었습니다.");
+      System.out.println("Complete.");
      }
      
     }
@@ -207,7 +207,7 @@ public class Transfer extends Frame implements Runnable {
 
   public MyTranferDialog(Frame frame) {
    super(frame);
-   add(new Label("이체되었습니다."));
+   add(new Label("Transfered."));
 
    addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) {
@@ -225,8 +225,8 @@ public class Transfer extends Frame implements Runnable {
   while (true) {
 
    Calendar cal = Calendar.getInstance();
-   now = cal.get(Calendar.YEAR) + "년" + (cal.get(Calendar.MONTH) + 1) + "월" + cal.get(Calendar.DATE) + "일"
-     + cal.get(Calendar.HOUR) + "시" + cal.get(Calendar.MINUTE) + "분" + cal.get(Calendar.SECOND) + "초";
+   now = cal.get(Calendar.YEAR) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DATE) + " "
+     + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND) + " ";
 
    clock.setText(now);
    clock.setFont(new Font("Serif",Font.BOLD,12));

@@ -29,26 +29,26 @@ public class EventEx2 extends Frame {
 		this.main = main;
 
 		Panel p0 = new Panel();
-		Label la1 = new Label("---------- �� ����------------");
+		Label la1 = new Label("----------Happy BirthDay to You------------");
 
 		p0.add(la1);
 
 		Panel p1 = new Panel();
 		p1.setLayout(new GridLayout(7, 2));
 
-		Label pId = new Label("�ֹε�Ϲ�ȣ");
+		Label pId = new Label("ID");
 		pId1 = new TextField("", 10);
 
-		Label gender = new Label("����");
+		Label gender = new Label("Gender");
 		gender1 = new TextField("	", 10);
 
-		Label age = new Label("����");
+		Label age = new Label("Age");
 
 		// String temp_age=Integer.toString(person.getAge());
 
 		age1 = new TextField("", 10);
 
-		Label we = new Label("�¾�� ����");
+		Label we = new Label("Weather");
 		we1 = new TextField("", 10);
 
 		Panel p2 = new Panel();

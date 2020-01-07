@@ -38,7 +38,7 @@ public class Deposit extends Frame implements Runnable{
   main.setVisible(false);
   
   Panel p0= new Panel();
-  Label la1 = new Label("★★★★★★★★DEPOSIT★★★★★★★★");
+  Label la1 = new Label("DEPOSIT");
   Font f1=new Font("Serif",Font.BOLD,50);
   la1.setFont(f1);
   
@@ -48,11 +48,11 @@ public class Deposit extends Frame implements Runnable{
   p1.setLayout(new GridLayout(3,2));
   
  
-  Label deposit=new Label("예금액");
+  Label deposit=new Label("Money");
   deposit1=new TextField("",10);
   
   
-  Label id=new Label("ID 입력");
+  Label id=new Label("ID");
   id1=new TextField("",10);
   
   
@@ -72,8 +72,8 @@ public class Deposit extends Frame implements Runnable{
   Panel p3=new Panel();
   //p3.setLayout(new BorderLayout());
   //Label la2=new Label(" ");
-  Label la3=new Label("mk bank 를 이용해주셔서 감사합니다.");
-  Button send=new Button("전송");
+  Label la3=new Label("Welcome to visit OKDOL BANK");
+  Button send=new Button("SEND");
   
   
   Panel p4 = new Panel();
@@ -171,7 +171,7 @@ public class Deposit extends Frame implements Runnable{
   
   public MyDepositDialog(Frame frame) {
    super(frame);  
-   add(new Label("이체되었습니다."));
+   add(new Label("Complete."));
   
    addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) {   
@@ -192,8 +192,8 @@ public class Deposit extends Frame implements Runnable{
   while (true) {
 
    Calendar cal = Calendar.getInstance();
-   now = cal.get(Calendar.YEAR) + "년" + (cal.get(Calendar.MONTH) + 1) + "월" + cal.get(Calendar.DATE) + "일"
-     + cal.get(Calendar.HOUR) + "시" + cal.get(Calendar.MINUTE) + "분" + cal.get(Calendar.SECOND) + "초";
+   now = cal.get(Calendar.YEAR) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DATE) + "  "
+     + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND) + " ";
 
    clock.setText(now);
    clock.setFont(new Font("Serif",Font.BOLD,12));

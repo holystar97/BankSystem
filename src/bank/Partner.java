@@ -74,7 +74,7 @@ public class Partner extends Frame implements ItemListener, Runnable {
   
   
   
-  submit = new Button("전송");
+  submit = new Button("Send");
 
   p1 = new Panel();
   p2 = new Panel();
@@ -86,19 +86,19 @@ public class Partner extends Frame implements ItemListener, Runnable {
   }
 
   cg = new CheckboxGroup();
-  ch1 = new Checkbox("상담원 A", cg, true);
-  ch2 = new Checkbox("상담원 B", cg, false);
-  ch3 = new Checkbox("상담원 C", cg, false);
-  ch4 = new Checkbox("이석");
-  ch5 = new Checkbox("작업");
-  ch6 = new Checkbox("식사");
-  ta = new TextArea(" <상담원 대기 시간표> ", 20, 20, TextArea.SCROLLBARS_NONE);
+  ch1 = new Checkbox("Counselor A", cg, true);
+  ch2 = new Checkbox("Counselor B", cg, false);
+  ch3 = new Checkbox("Counselor C", cg, false);
+  ch4 = new Checkbox("Break");
+  ch5 = new Checkbox("Work");
+  ch6 = new Checkbox("Meal");
+  ta = new TextArea(" <Counselor Time> ", 20, 20, TextArea.SCROLLBARS_NONE);
   ta.setFont(new Font("Serif", Font.BOLD, 20));
   before_time = new Label();
   cho = new Choice();
-  cho.add("상담원 A");
-  cho.add("상담원 B");
-  cho.add("상담원 C");
+  cho.add("Counselor A");
+  cho.add("Counselor B");
+  cho.add("Counselor C");
 
   item = new Choice();
 
@@ -181,7 +181,7 @@ public class Partner extends Frame implements ItemListener, Runnable {
   item.addItemListener((e) -> {
    ValueObject vo = arr_vo.get(item.getSelectedIndex());
 
-   ta.setText("<사용자 정보>\n\n\n ");
+   ta.setText("<User Info>\n\n\n ");
    ta.setFont(new Font("Serif", Font.BOLD, 20));
    ta.append(vo.getVal1() + "\n\n");
    ta.setFont(new Font("Serif", Font.BOLD, 20));
@@ -232,8 +232,8 @@ public class Partner extends Frame implements ItemListener, Runnable {
     if (ch4.getState()) {
      sb.append(ch4.getLabel() + "☆");
 
-     start = scal.get(Calendar.HOUR) + "시" + scal.get(Calendar.MINUTE) + "분" + scal.get(Calendar.SECOND)
-       + "초";
+     start = scal.get(Calendar.HOUR) + ":" + scal.get(Calendar.MINUTE) + ":" + scal.get(Calendar.SECOND)
+       + "";
 
      strA = new Date();
 
@@ -242,7 +242,7 @@ public class Partner extends Frame implements ItemListener, Runnable {
      int min = calA.get(Calendar.MINUTE) - cal.get(Calendar.MINUTE);
      int sec = calA.get(Calendar.SECOND) - cal.get(Calendar.SECOND);
 
-     before = (Integer.toString(min) + "분" + Integer.toString(sec) + "초");
+     before = (Integer.toString(min) + ":" + Integer.toString(sec) + " ");
 
      before_time.setText(before);
 
@@ -257,8 +257,8 @@ public class Partner extends Frame implements ItemListener, Runnable {
 
     } else if (ch5.getState()) {
      sb.append(ch5.getLabel() + "☆");
-     start = scal.get(Calendar.HOUR) + "시" + scal.get(Calendar.MINUTE) + "분" + scal.get(Calendar.SECOND)
-       + "초";
+     start = scal.get(Calendar.HOUR) + ":" + scal.get(Calendar.MINUTE) + ":" + scal.get(Calendar.SECOND)
+       + " ";
 
      strB = new Date();
      sb.append(start);
@@ -266,8 +266,8 @@ public class Partner extends Frame implements ItemListener, Runnable {
 
     else if (ch6.getState()) {
      sb.append(ch6.getLabel());
-     start = scal.get(Calendar.HOUR) + "시" + scal.get(Calendar.MINUTE) + "분" + scal.get(Calendar.SECOND)
-       + "초";
+     start = scal.get(Calendar.HOUR) + ":" + scal.get(Calendar.MINUTE) + ":" + scal.get(Calendar.SECOND)
+       + " ";
      strC = new Date();
      sb.append(start);
 
@@ -298,7 +298,7 @@ public class Partner extends Frame implements ItemListener, Runnable {
  public void addUserInfo() {
   item.removeAll();
   for (int i = 0; i < arr_vo.size(); i++) {
-   item.add("상담사" + (i + 1));
+   item.add("Counselor" + (i + 1));
   }
 
  }
@@ -329,11 +329,11 @@ public class Partner extends Frame implements ItemListener, Runnable {
   if (obj == cho) {
    // 객체를 비교하는 역할만 하므로 c로 안바꿔줘도 된다
    String str = cho.getSelectedItem();
-   if (str.equals("상담원A")) {
+   if (str.equals("CounselorA")) {
     ch1.setState(true);
-   } else if (str.equals("상담원B")) {
+   } else if (str.equals("CounselorB")) {
     ch2.setState(true);
-   } else if (str.equals("상담원C")) {
+   } else if (str.equals("CounselorC")) {
     ch3.setState(true);
    }
 
@@ -341,9 +341,9 @@ public class Partner extends Frame implements ItemListener, Runnable {
 
   Checkbox temp = cg.getSelectedCheckbox();
   ta.setText("  << " + temp.getLabel() + ">> \n\n");
-  ta.append("1. 이석 : " + ch4.getState() + " \n");
-  ta.append("2. 작업 : " + ch5.getState() + " \n");
-  ta.append("3. 식사 : " + ch6.getState() + " \n");
+  ta.append("1. Break : " + ch4.getState() + " \n");
+  ta.append("2. Work : " + ch5.getState() + " \n");
+  ta.append("3. Meal : " + ch6.getState() + " \n");
 
   cho.select(temp.getLabel());
 
@@ -355,9 +355,9 @@ public class Partner extends Frame implements ItemListener, Runnable {
   while (true) {
    Calendar mcal = Calendar.getInstance();
 
-   main_now = mcal.get(Calendar.YEAR) + "년" + (mcal.get(Calendar.MONTH) + 1) + "월" + mcal.get(Calendar.DATE)
-     + "일" + mcal.get(Calendar.HOUR) + "시" + mcal.get(Calendar.MINUTE) + "분" + mcal.get(Calendar.SECOND)
-     + "초";
+   main_now = mcal.get(Calendar.YEAR) + "/" + (mcal.get(Calendar.MONTH) + 1) + "/" + mcal.get(Calendar.DATE)
+     + " " + mcal.get(Calendar.HOUR) + ":" + mcal.get(Calendar.MINUTE) + ":" + mcal.get(Calendar.SECOND)
+     + " ";
 
    
    

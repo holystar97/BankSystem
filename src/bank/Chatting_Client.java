@@ -63,7 +63,7 @@ public class Chatting_Client extends JFrame implements Runnable, ActionListener 
   this.main = main;
   main.setVisible(false);
   Panel p0 = new Panel();
-  Label la1 = new Label("★★★★★★★★채팅★★★★★★★★");
+  Label la1 = new Label("Chatting");
   Font f1 = new Font("Serif", Font.BOLD, 50);
   la1.setFont(f1);
   p0.add(la1);
@@ -72,7 +72,7 @@ public class Chatting_Client extends JFrame implements Runnable, ActionListener 
   output = new TextArea("", 20, 30);
   output.setFont(new Font("Serif", Font.BOLD, 15));
 
-  label = new Label("사용자이름");
+  label = new Label("User");
   Font f2 = new Font("Serif", Font.BOLD, 15);
   label.setFont(f2);
   input = new JTextField("", 10);
@@ -90,9 +90,9 @@ public class Chatting_Client extends JFrame implements Runnable, ActionListener 
 
   }
 
-  Label la3 = new Label("mk bank 를 이용해주셔서 감사합니다.");
+  Label la3 = new Label("Welcome to visit OKDOL BANK.");
   la3.setFont(new Font("Serif", Font.BOLD, 20));
-  Button send = new Button("확인");
+  Button send = new Button("SEND");
   send.setBackground(new Color(255, 160, 122));
 
   Panel p4 = new Panel();
@@ -152,8 +152,8 @@ public class Chatting_Client extends JFrame implements Runnable, ActionListener 
   while (true) {
 
    Calendar cal = Calendar.getInstance();
-   now = cal.get(Calendar.YEAR) + "년" + (cal.get(Calendar.MONTH) + 1) + "월" + cal.get(Calendar.DATE) + "일"
-     + cal.get(Calendar.HOUR) + "시" + cal.get(Calendar.MINUTE) + "분" + cal.get(Calendar.SECOND) + "초";
+   now = cal.get(Calendar.YEAR) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DATE) + " "
+     + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND) + " ";
 
    clock.setText(now);
    clock.setFont(new Font("Serif", Font.BOLD, 12));
@@ -178,7 +178,7 @@ public class Chatting_Client extends JFrame implements Runnable, ActionListener 
   // TODO Auto-generated method stub
   Object c=e.getSource();
   if(c==input) {
-   label.setText("메시지");
+   label.setText("message");
    o.println(input.getText()); // 값을 네트워크를 통해서 보내라 write 해라 라는 뜻
    input.setText("");
   }

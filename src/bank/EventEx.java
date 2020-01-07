@@ -46,13 +46,13 @@ public class EventEx extends Frame {
 
   main.setVisible(false);
   p0 = new Panel();
-  la1 = new Label("----------이벤트------------");
+  la1 = new Label("Event");
   p0.add(la1);
 
   Panel p1 = new Panel();
   p1.setLayout(new GridLayout(3, 2));
 
-  Label jumin = new Label("회원님의 주민번호를 입력하세요 >> ");
+  Label jumin = new Label("Enter your identification number>> ");
   jumin1 = new TextField("", 10);
 
   p1.add(jumin);
@@ -67,8 +67,8 @@ public class EventEx extends Frame {
   Panel p3 = new Panel();
   // p3.setLayout(new BorderLayout());
   // Label la2=new Label(" ");
-  Label la3 = new Label("mk bank 를 이용해주셔서 감사합니다.");
-  Button send = new Button("전송");
+  Label la3 = new Label("Welcome to visit OKDOL BANK.");
+  Button send = new Button("SEND");
 
   p3.add(la3);
   p3.add(send);
@@ -102,18 +102,18 @@ public class EventEx extends Frame {
     boolean result = Pattern.matches(regExp, jumin.getText());
     if (!result) {
      dialog.setVisible(true);
-     System.out.println("올바른 주민등록번호입니다.");
+     System.out.println("Correct");
     } else {
 
      dialog2.setVisible(true);
-     System.out.println("올바르지 않은 주민등록번호입니다.");
+     System.out.println("Incorrect");
     }
 
     Calendar today = Calendar.getInstance();
-    System.out.println("오늘의 날짜는 ");
-    System.out.print(today.get(Calendar.YEAR) + "년");
-    System.out.print(today.get(Calendar.MONTH) + 1 + "월");
-    System.out.println(today.get(Calendar.DATE) + "일");
+    System.out.println("Today is ");
+    System.out.print(today.get(Calendar.YEAR) + "/");
+    System.out.print(today.get(Calendar.MONTH) + 1 + "/");
+    System.out.println(today.get(Calendar.DATE) + " ");
 
     String gender = "";
     String we = "";
@@ -131,15 +131,15 @@ public class EventEx extends Frame {
 
     if (ch == '1' || ch == '3') {
 
-     person.setGender("남성");
+     person.setGender("Male");
 
     } else if (ch == '2' || ch == '4') {
 
-     person.setGender("여성");
+     person.setGender("Female");
 
     } else {
 
-     person.setGender("외국인");
+     person.setGender("Foreign");
 
     }
 
@@ -167,7 +167,7 @@ public class EventEx extends Frame {
     case "01":
     case "02":
 
-     we = "겨울";
+     we = "Winter";
      person.setWeather(we);
      break;
 
@@ -175,7 +175,7 @@ public class EventEx extends Frame {
     case "04":
     case "05":
 
-     we = "봄";
+     we = "Spring";
      person.setWeather(we);
      break;
 
@@ -183,7 +183,7 @@ public class EventEx extends Frame {
     case "07":
     case "08":
 
-     we = "여름";
+     we = "Summer";
      person.setWeather(we);
      break;
 
@@ -191,7 +191,7 @@ public class EventEx extends Frame {
     case "10":
     case "11":
 
-     we = "가을";
+     we = "Autumn";
      person.setWeather(we);
      break;
 
@@ -210,23 +210,23 @@ public class EventEx extends Frame {
     personWeather(EventEx2.we1);
     personGift(EventEx2.gift);
 
-    System.out.println("입력하신 주민등록번호는 " + jumin);
+    System.out.println("Entered identfication number is  " + jumin);
 
-    System.out.println("성별은 " + gender);
+    System.out.println("Gender is  " + gender);
 
-    System.out.println("나이는" + age);
+    System.out.println("Age is " + age);
 
-    System.out.println("태어나신 계절은" + we);
+    System.out.println("Born Weather is " + we);
 
     // 970615
     if (Integer.parseInt(jumin.substring(2, 4)) == today.get(Calendar.MONTH) + 1) {
 
      if (Integer.parseInt(jumin.substring(4, 6)) == today.get(Calendar.DATE)) {
-      System.out.println("생일 축하합니다.");
+      System.out.println("Happy Birthday to you.");
      }
 
     } else {
-     System.out.println("상품은 생일날에...");
+     System.out.println("Next chance");
     }
 
    }
@@ -238,7 +238,7 @@ public class EventEx extends Frame {
 
   public MyJuminDialog(Frame frame) {
    super(frame);
-   add(new Label("확인되었습니다."));
+   add(new Label("Correct."));
    addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) {
      eventEx2.setVisible(true);
@@ -253,7 +253,7 @@ public class EventEx extends Frame {
 
   public MyInsufficientJuminDialog(Frame frame) {
    super(frame);
-   add(new Label("제대로 된 숫자를 입력해주세요 "));
+   add(new Label("Please enter the correct number "));
 
    addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) {
@@ -289,11 +289,11 @@ public class EventEx extends Frame {
   if (Integer.parseInt(person.getPersonalId().substring(2, 4)) == today.get(Calendar.MONTH) + 1) {
 
    if (Integer.parseInt(person.getPersonalId().substring(4, 6)) == today.get(Calendar.DATE)) {
-    gift.setText("생일 축하합니다. 기프티콘이 발생 되었습니다.");
+    gift.setText("Gift coupon is send for you");
    }
 
   } else {
-   gift.setText("상품은 생일 날에....");
+   gift.setText("Next chance");
   }
 
  }
